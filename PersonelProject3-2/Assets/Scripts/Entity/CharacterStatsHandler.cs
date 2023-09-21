@@ -15,13 +15,13 @@ public class CharacterStatsHandler : MonoBehaviour
 
     private void UpdateCharacterStats()
     {
-        AttackSO attackSO = null;
-        if (baseStats.attackSO != null)
+        BattleSO battleSO = null;
+        if (baseStats.battleSO != null)
         {
-            attackSO = Instantiate(baseStats.attackSO);
+            battleSO = Instantiate(baseStats.battleSO);
         }
 
-        CurrentStats = new CharacterStats { attackSO = attackSO };
+        CurrentStats = new CharacterStats { battleSO = battleSO };
         // TODO
         CurrentStats.statsChangeType = baseStats.statsChangeType;
         CurrentStats.maxHealth = baseStats.maxHealth;

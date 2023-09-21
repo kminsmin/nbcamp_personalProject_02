@@ -19,5 +19,5 @@ public class CharacterStats
     [Range(1, 100)] public int level;
     [Range(0, 9999999)] public int gold;
 
-    public AttackSO attackSO;
+    public BattleSO battleSO;
 }

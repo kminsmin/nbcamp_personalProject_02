@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c553ab9b95be452499954a218b7b09a7, type: 3}
-  m_Name: PlayerAttackSO
+  m_Name: PlayerBattleSO
   m_EditorClassIdentifier: 
   physicalAttack: 10
   magicalAttack: 10
   criticalRate: 0.25
   criticalDamage: 1.5
+  physicalDefense: 10
+  magicalDefense: 10
+  avoidRate: 0.1
