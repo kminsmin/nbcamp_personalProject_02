@@ -6,10 +6,11 @@ public class CharacterStatsHandler : MonoBehaviour
 {
     [SerializeField] private CharacterStats baseStats;
     public CharacterStats CurrentStats { get; private set; }
-    public List<CharacterStats> statModifiers = new List<CharacterStats>();
+    public List<ItemStats> statModifiers = new List<ItemStats>();
 
     private void Awake()
     {
+        //statModifiers.Add(new)
         UpdateCharacterStats();
     }
 
@@ -22,9 +23,48 @@ public class CharacterStatsHandler : MonoBehaviour
         }
 
         CurrentStats = new CharacterStats { battleSO = battleSO };
-        // TODO
         CurrentStats.statsChangeType = baseStats.statsChangeType;
         CurrentStats.maxHealth = baseStats.maxHealth;
         CurrentStats.maxMana = baseStats.maxMana;
+        CurrentStats.level = baseStats.level;
+        CurrentStats.gold = baseStats.gold;
+
+        if(statModifiers.Count == 0) { return; }
+        foreach(ItemStats itemStat in statModifiers)
+        {
+            switch(itemStat.statsChangeType)
+            {
+                case StatsChangeType.Add:
+                    CurrentStats.battleSO.physicalAttack += itemStat.battleSO.physicalAttack;
+                    CurrentStats.battleSO.magicalAttack += itemStat.battleSO.magicalAttack;
+                    CurrentStats.battleSO.criticalRate += itemStat.battleSO.criticalRate;
+                    CurrentStats.battleSO.criticalDamage += itemStat.battleSO.criticalDamage;
+                    CurrentStats.battleSO.physicalDefense += itemStat.battleSO.physicalDefense;
+                    CurrentStats.battleSO.magicalDefense += itemStat.battleSO.magicalDefense;
+                    CurrentStats.battleSO.avoidRate += itemStat.battleSO.avoidRate;
+                    break;
+                case StatsChangeType.Multiple:
+                    CurrentStats.battleSO.physicalAttack *= itemStat.battleSO.physicalAttack;
+                    CurrentStats.battleSO.magicalAttack *= itemStat.battleSO.magicalAttack;
+                    CurrentStats.battleSO.criticalRate *= itemStat.battleSO.criticalRate;
+                    CurrentStats.battleSO.criticalDamage *= itemStat.battleSO.criticalDamage;
+                    CurrentStats.battleSO.physicalDefense *= itemStat.battleSO.physicalDefense;
+                    CurrentStats.battleSO.magicalDefense *= itemStat.battleSO.magicalDefense;
+                    CurrentStats.battleSO.avoidRate *= itemStat.battleSO.avoidRate;
+                    break;
+                case StatsChangeType.Override:
+                    CurrentStats.battleSO.physicalAttack = itemStat.battleSO.physicalAttack;
+                    CurrentStats.battleSO.magicalAttack = itemStat.battleSO.magicalAttack;
+                    CurrentStats.battleSO.criticalRate = itemStat.battleSO.criticalRate;
+                    CurrentStats.battleSO.criticalDamage = itemStat.battleSO.criticalDamage;
+                    CurrentStats.battleSO.physicalDefense = itemStat.battleSO.physicalDefense;
+                    CurrentStats.battleSO.magicalDefense = itemStat.battleSO.magicalDefense;
+                    CurrentStats.battleSO.avoidRate = itemStat.battleSO.avoidRate;
+                    break;
+
+            }
+        }
+
+
     }
 }

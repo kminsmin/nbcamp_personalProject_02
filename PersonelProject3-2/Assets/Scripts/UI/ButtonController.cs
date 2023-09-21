@@ -24,6 +24,7 @@ public class ButtonController : MonoBehaviour
     public void OpenStatus()
     {
         _statusUI.SetActive(true);
+        UIManager.Instance.UpdatePlayerStatusUI();
         _buttons.SetActive(false);
     }
     public void CloseStatus()

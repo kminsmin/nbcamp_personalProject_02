@@ -772,7 +772,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 437766044}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1490054677}
+        m_TargetAssemblyTypeName: SSUIManager, Assembly-CSharp
+        m_MethodName: DeactivatePlayerNamePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &437766044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,7 +1311,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 652068457}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1490054677}
+        m_TargetAssemblyTypeName: SSUIManager, Assembly-CSharp
+        m_MethodName: ChooseWarrior
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &652068457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1421,7 +1445,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 655068505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1490054677}
+        m_TargetAssemblyTypeName: SSUIManager, Assembly-CSharp
+        m_MethodName: ChooseThief
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &655068505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1811,7 +1847,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1082235986}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1490054677}
+        m_TargetAssemblyTypeName: SSUIManager, Assembly-CSharp
+        m_MethodName: ChooseArcher
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1082235986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1933,7 +1981,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1153421569}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1490054677}
+        m_TargetAssemblyTypeName: SSUIManager, Assembly-CSharp
+        m_MethodName: ChooseMagician
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1153421569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2017,6 +2077,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogue: {fileID: 11400000, guid: 0be1255b3139ac74abfe35a564a40c95, type: 2}
+  dialogueIndex: 0
+  texts: []
 --- !u!1 &1490054675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueManager: {fileID: 1192563659}
   _dialogueText: {fileID: 2088755016}
+  _nameText: {fileID: 1492229622}
   _playerChoicePanel: {fileID: 1504117887}
   _playerNamePanel: {fileID: 239750659}
   textInterval: 0.1
