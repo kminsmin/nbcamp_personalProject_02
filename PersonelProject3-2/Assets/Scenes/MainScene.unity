@@ -15146,6 +15146,10 @@ MonoBehaviour:
   - {fileID: 755510641}
   - {fileID: 92815294}
   _itemPopup: {fileID: 478012206}
+  _itemActionText: {fileID: 957838593}
+  _itemModText: {fileID: 983468845}
+  _itemParameterText: {fileID: 704476370}
+  _itemPopImage: {fileID: 584627450}
   _player: {fileID: 1634965118}
   _itemGridsTransform: {fileID: 203744282}
   itemAction: 0
