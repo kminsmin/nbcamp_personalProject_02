@@ -66,6 +66,9 @@ public class UIManager : MonoBehaviour
 
     public void ShowItemPopup(int index)
     {
+        if (index >= GameManager.Instance.inventory.Count)
+            return;
+
         if (!(GameManager.Instance.inventory[index].isEquipped))
         {
             GameManager.Instance.inventory[index].isEquipped = true;
