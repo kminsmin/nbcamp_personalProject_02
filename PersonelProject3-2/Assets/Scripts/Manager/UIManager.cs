@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _playerLevelUI;
     [SerializeField] private TextMeshProUGUI _playerGoldUI;
     [SerializeField] private TextMeshProUGUI[] _playerStatsUI;
+    [SerializeField] private GameObject[] _equipFlags;
     [SerializeField] private GameObject _player;
+    [SerializeField] private Transform _itemGridsTransform;
 
     private void Awake()
     {
@@ -46,6 +49,32 @@ public class UIManager : MonoBehaviour
         {
             stat.text = statStringList[i];
             i++;
+        }
+    }
+
+    public void LoadInventoryUI()
+    {
+        List<ItemStats> inventory = GameManager.Instance.inventory;
+        for(int i = 0; i < inventory.Count; i++)
+        {
+            Transform itemGrid = _itemGridsTransform.GetChild(i);
+            itemGrid.GetComponent<ItemGrid>().itemIndex = i;
+            Image image = itemGrid.GetChild(0).GetComponent<Image>();
+            image.sprite = inventory[i].itemSprite;
+        }
+    }
+
+    public void ShowItemPopup(int index)
+    {
+        if (!(GameManager.Instance.inventory[index].isEquipped))
+        {
+            GameManager.Instance.inventory[index].isEquipped = true;
+            _equipFlags[index].gameObject.SetActive(true);
+        }
+        else
+        {
+            GameManager.Instance.inventory[index].isEquipped = false;
+            _equipFlags[index].gameObject.SetActive(false);
         }
     }
 

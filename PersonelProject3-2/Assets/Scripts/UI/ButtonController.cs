@@ -12,14 +12,30 @@ public class ButtonController : MonoBehaviour
     public void OpenInventory()
     {
         _inventoryUI.SetActive(true);
+        UIManager.Instance.LoadInventoryUI();
         _buttons.SetActive(false);
     }
     public void CloseInventory()
     {
         _inventoryUI.SetActive(false);
+        GameManager.Instance.UnequipAllItems();
+        foreach(ItemStats item in GameManager.Instance.inventory)
+        {
+            if (item.isEquipped)
+            {
+                GameManager.Instance.EquipItem(item);
+            }
+        }
         _buttons.SetActive(true);
     }
 
+    public void ChooseItem(int index)
+    {
+        //TODO ÀåÂøÆË¾÷ ¹× Ã³¸®
+        UIManager.Instance.ShowItemPopup(index);
+        //bool isEquipped = GameManager.Instance.inventory[0].isEquipped;
+        //GameManager.Instance.inventory[0].isEquipped = !isEquipped;
+    }
 
     public void OpenStatus()
     {
@@ -44,4 +60,5 @@ public class ButtonController : MonoBehaviour
         _storeUI.SetActive(false);
         _buttons.SetActive(true);
     }
+
 }
