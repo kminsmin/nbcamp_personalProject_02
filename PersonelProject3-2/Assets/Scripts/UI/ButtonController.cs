@@ -37,6 +37,20 @@ public class ButtonController : MonoBehaviour
         //GameManager.Instance.inventory[0].isEquipped = !isEquipped;
     }
 
+    public void ConfirmItemAction()
+    {
+        string key = UIManager.KEY;
+        UIManager.Instance.itemAction = ItemAction.CONFIRM;
+        UIManager.Instance.ShowItemPopup(PlayerPrefs.GetInt(key));
+    }
+
+    public void CancelItemAction()
+    {
+        string key = UIManager.KEY;
+        UIManager.Instance.itemAction=ItemAction.CANCEL;
+        UIManager.Instance.ShowItemPopup(PlayerPrefs.GetInt(key));
+    }
+
     public void OpenStatus()
     {
         _statusUI.SetActive(true);

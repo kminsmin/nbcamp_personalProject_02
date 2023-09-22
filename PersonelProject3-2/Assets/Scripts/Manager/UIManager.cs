@@ -3,19 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
+
+public enum ItemAction
+{
+    NONE,
+    CANCEL,
+    CONFIRM
+}
 
 public class UIManager : MonoBehaviour
 {
     private const string KEY_NAME = "PlayerName";
     private const string KEY_JOB = "PlayerJob";
+    public const string KEY = "ItemIndex";
     public static UIManager Instance;
     [SerializeField] private TextMeshProUGUI _playerNameUI;
     [SerializeField] private TextMeshProUGUI _playerLevelUI;
     [SerializeField] private TextMeshProUGUI _playerGoldUI;
     [SerializeField] private TextMeshProUGUI[] _playerStatsUI;
     [SerializeField] private GameObject[] _equipFlags;
+    [SerializeField] private GameObject _itemPopup;
     [SerializeField] private GameObject _player;
     [SerializeField] private Transform _itemGridsTransform;
+    public ItemAction itemAction = ItemAction.NONE;
 
     private void Awake()
     {
@@ -68,7 +79,28 @@ public class UIManager : MonoBehaviour
     {
         if (index >= GameManager.Instance.inventory.Count)
             return;
+        _itemPopup.SetActive(true);
 
+        switch (itemAction)
+        {
+            case ItemAction.NONE:
+                PlayerPrefs.SetInt(KEY, index);
+                break;
+            case ItemAction.CANCEL:
+                _itemPopup.SetActive(false);
+                itemAction = ItemAction.NONE;
+                return;
+            case ItemAction.CONFIRM:
+                CheckItemEquip(index);
+                _itemPopup.SetActive(false);
+                itemAction = ItemAction.NONE;
+                return;
+
+        }
+    }
+
+    public void CheckItemEquip(int index)
+    {
         if (!(GameManager.Instance.inventory[index].isEquipped))
         {
             GameManager.Instance.inventory[index].isEquipped = true;
